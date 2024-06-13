@@ -11,11 +11,11 @@ edit a previously generated verse
 
 ## API
 
-/verses/:id
+/verse/:id
 view and edit a particular verse
 
-/verses/new
+/verse/new
 generate bars
 
-/users/:id
+/user/:id
 user profile page, can see a list of generated verses

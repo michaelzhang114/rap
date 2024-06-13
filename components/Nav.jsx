@@ -19,9 +19,11 @@ const Nav = () => {
 	}, []);
 
 	return (
-		<div className="navbar bg-base-100">
+		<div className="navbar bg-neutral">
 			<div className="flex-1">
-				<a className="btn btn-ghost text-xl">Rap ting</a>
+				<Link className="btn btn-ghost text-xl" href="/">
+					Rap ting
+				</Link>
 			</div>
 			<div className="flex-none">
 				<div className="dropdown dropdown-end">
@@ -50,6 +52,12 @@ const Nav = () => {
 									</a>
 								</li>
 								<li>
+									{/* <a>Generate Verse</a> */}
+									<Link href="/create-verse">
+										Generate Verse
+									</Link>
+								</li>
+								<li>
 									<a>Settings</a>
 								</li>
 								<li>
@@ -68,7 +76,7 @@ const Nav = () => {
 							{providers &&
 								Object.values(providers).map((provider) => (
 									<button
-										className="btn btn-accent"
+										className="btn btn-primary"
 										key={provider.name}
 										onClick={() => signIn(provider.id)}
 									>
