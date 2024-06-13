@@ -11,7 +11,7 @@ export const metadata = {
 const RootLayout = ({ children }) => {
 	return (
 		<html lang="en">
-			<body>
+			<body className="box-border">
 				<Provider>
 					<main className="app">
 						<Nav />
