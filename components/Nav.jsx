@@ -50,10 +50,13 @@ const Nav = () => {
 								className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
 							>
 								<li>
-									<a className="justify-between">
+									<Link
+										className="justify-between"
+										href="/profile"
+									>
 										Profile
 										<span className="badge">New</span>
-									</a>
+									</Link>
 								</li>
 								<li>
 									{/* <a>Generate Verse</a> */}
