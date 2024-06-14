@@ -28,7 +28,7 @@ const Nav = () => {
 				</Link>
 			</div>
 			<div className="flex-none">
-				<div className="dropdown dropdown-end">
+				<div className="dropdown dropdown-end z-50">
 					{session?.user ? (
 						<>
 							<div
@@ -68,13 +68,14 @@ const Nav = () => {
 									<a>Settings</a>
 								</li>
 								<li>
-									<a
+									<Link
 										onClick={() => {
-											signOut();
+											signOut({ callbackUrl: "/" });
 										}}
+										href="/"
 									>
 										Logout
-									</a>
+									</Link>
 								</li>
 							</ul>
 						</>
