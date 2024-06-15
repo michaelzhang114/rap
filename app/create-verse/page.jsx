@@ -43,7 +43,8 @@ const CreateVerse = () => {
 
 	return (
 		<div>
-			<Form
+			{/* Old form to create verse */}
+			{/* <Form
 				type="Create"
 				verse={verse}
 				setVerse={setVerse}
@@ -51,10 +52,15 @@ const CreateVerse = () => {
 				handleSubmit={createVerse}
 			/>{" "}
 			<br></br>
-			<br></br>
-			<FormGenerate></FormGenerate>
-			<br></br>
-			<VerseOutput></VerseOutput>
+			<br></br> */}
+
+			<FormGenerate
+				handleSubmit={createVerse}
+				haiku={verse}
+				setHaiku={setVerse}
+			></FormGenerate>
+
+			{/* <VerseOutput></VerseOutput> */}
 		</div>
 	);
 };

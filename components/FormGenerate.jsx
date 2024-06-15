@@ -2,23 +2,23 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 
-const FormGenerate = () => {
+const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 	const [word, setWord] = useState("");
-	const [haiku, setHaiku] = useState("");
+	// const [haiku, setHaiku] = useState("");
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState("");
 
-	const handleSubmit = async (e) => {
+	const handleGenerate = async (e) => {
 		e.preventDefault();
 		setLoading(true);
 		setError("");
-		setHaiku("");
+		// setHaiku({ title: "", contents: "" });
 
 		try {
 			console.log("calling api");
 			const response = await axios.post("/api/generate", { word });
 			console.log(response);
-			setHaiku(response.data);
+			setHaiku({ title: "generated", contents: response.data });
 		} catch (err) {
 			console.log(err);
 			setError("Failed to generate haiku. Please try again.");
@@ -29,7 +29,7 @@ const FormGenerate = () => {
 
 	return (
 		<section>
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleGenerate}>
 				<label className="form-control w-full max-w-xs">
 					<div className="label">
 						<span className="label-text">Verse name</span>
@@ -62,7 +62,20 @@ const FormGenerate = () => {
 			{haiku && (
 				<div>
 					<h2>Your Haiku:</h2>
-					<p>{haiku}</p>
+					<textarea
+						className="textarea textarea-success max-w-xs"
+						placeholder="Bio"
+						value={haiku.contents}
+						onChange={(e) =>
+							setHaiku((prev) => ({
+								...prev,
+								contents: e.target.value,
+							}))
+						}
+					/>
+					<button className="btn btn-primary" onClick={handleSubmit}>
+						Save{" "}
+					</button>
 				</div>
 			)}
 		</section>
