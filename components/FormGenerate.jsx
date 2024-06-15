@@ -1,12 +1,20 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import CustomArtistRadio from "./CustomArtistRadio";
 
 const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
-	const [word, setWord] = useState("");
+	const [payload, setPayload] = useState({ word: "", artist: "" });
 	// const [haiku, setHaiku] = useState("");
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState("");
+
+	// artist selection
+	const [selectedArtist, setSelectedArtist] = useState("hi");
+	const handleArtistSelect = (value) => {
+		setSelectedArtist(value);
+		setPayload({ ...payload, word: value });
+	};
 
 	const handleGenerate = async (e) => {
 		e.preventDefault();
@@ -15,8 +23,10 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 		// setHaiku({ title: "", contents: "" });
 
 		try {
-			console.log("calling api");
-			const response = await axios.post("/api/generate", { word });
+			console.log(
+				`calling api with payload of ${JSON.stringify(payload)}`
+			);
+			const response = await axios.post("/api/generate", { payload });
 			console.log(response);
 			setHaiku({ title: "generated", contents: response.data });
 		} catch (err) {
@@ -30,7 +40,7 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 	return (
 		<section>
 			<form onSubmit={handleGenerate}>
-				<label className="form-control w-full max-w-xs">
+				{/* <label className="form-control w-full max-w-xs">
 					<div className="label">
 						<span className="label-text">Verse name</span>
 					</div>
@@ -38,18 +48,27 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 						type="text"
 						placeholder="Type here"
 						className="input input-bordered w-full max-w-xs"
-						value={word}
-						onChange={(e) => setWord(e.target.value)}
+						value={payload.word}
+						onChange={(e) =>
+							setPayload({ ...payload, word: e.target.value })
+						}
 						// value={verse.title}
 						// onChange={(e) =>
 						// 	setVerse({ ...verse, title: e.target.value })
 						// }
-						required
 					/>
-				</label>
+				</label> */}
+				<div>
+					<span>artist selection section</span>
+					<CustomArtistRadio
+						label="my custom checkbox"
+						onSelect={handleArtistSelect}
+					></CustomArtistRadio>
+					<p>Selected option: {selectedArtist}</p>
+				</div>
 				<div>
 					<span>moods section</span>
-					<button className="btn btn-outline btn-sm">Default</button>
+					{/* <button className="btn btn-outline btn-sm">Default</button> */}
 				</div>
 				<div>
 					<button

@@ -7,11 +7,11 @@ const openai = new OpenAI({
 
 export const POST = async (request, res) => {
 	try {
-		const { word } = await request.json();
+		const { payload } = await request.json();
 
-		console.log(`backend got ${word}`);
+		console.log(`backend got ${JSON.stringify(payload)}`);
 
-		if (!word) {
+		if (!payload.word) {
 			return Response.json(
 				{ message: "Word is required" },
 				{ status: 400 }
@@ -22,7 +22,10 @@ export const POST = async (request, res) => {
 
 		const completion = await openai.chat.completions.create({
 			messages: [
-				{ role: "system", content: `Write a Haiku about ${word}` },
+				{
+					role: "system",
+					content: `Write a Haiku about ${payload.word}`,
+				},
 			],
 			model: "gpt-3.5-turbo",
 		});

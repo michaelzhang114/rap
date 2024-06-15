@@ -24,7 +24,7 @@ const Nav = () => {
 		<div className="navbar bg-neutral">
 			<div className="flex-1">
 				<Link className="btn btn-ghost text-xl" href="/">
-					Rap ting
+					Rhyme Machine
 				</Link>
 			</div>
 			<div className="flex-none">
