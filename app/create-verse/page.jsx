@@ -5,6 +5,8 @@ import Form from "@components/Form";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import FormGenerate from "@components/FormGenerate";
+import VerseOutput from "@components/VerseOutput";
 
 const CreateVerse = () => {
 	const router = useRouter();
@@ -48,6 +50,11 @@ const CreateVerse = () => {
 				submitting={submitting}
 				handleSubmit={createVerse}
 			/>{" "}
+			<br></br>
+			<br></br>
+			<FormGenerate></FormGenerate>
+			<br></br>
+			<VerseOutput></VerseOutput>
 		</div>
 	);
 };
