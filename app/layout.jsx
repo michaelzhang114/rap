@@ -17,7 +17,9 @@ const RootLayout = ({ children }) => {
 				<Provider>
 					<main className="app">
 						<Nav />
-						{children}
+						<div className="contianer mx-auto max-w-7xl">
+							{children}
+						</div>
 					</main>
 				</Provider>
 			</body>

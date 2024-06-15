@@ -3,7 +3,7 @@ import React from "react";
 const Home = () => {
 	return (
 		<section className="">
-			<div className="hero min-h-screen bg-base-200">
+			<div className="hero min-h-screen">
 				<div className="hero-content flex-col lg:flex-row-reverse">
 					<img
 						src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
