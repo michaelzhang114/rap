@@ -48,6 +48,10 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 					/>
 				</label>
 				<div>
+					<span>moods section</span>
+					<button className="btn btn-outline btn-sm">Default</button>
+				</div>
+				<div>
 					<button
 						className="btn btn-primary"
 						type="submit"

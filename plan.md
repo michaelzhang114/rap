@@ -19,3 +19,8 @@ generate bars
 
 /user/:id
 user profile page, can see a list of generated verses
+
+## TODO
+
+-   protect routes
+-
