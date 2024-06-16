@@ -23,7 +23,7 @@ const VerseCard = ({ verse, handleTagClick, handleEdit, handleDelete }) => {
 
 	return (
 		<div>
-			<div className="card w-96 bg-base-100 shadow-xl image-full px-3 py-3">
+			<div className="card bg-base-100 shadow-xl image-full px-3 py-3">
 				<figure>
 					<img
 						src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"

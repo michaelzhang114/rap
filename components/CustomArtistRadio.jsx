@@ -12,12 +12,12 @@ const artistsList = [
 	},
 	{
 		name: "J. Cole",
-		imageSrc: "/artists/black_thought.jpg",
+		imageSrc: "/artists/j_cole.jpg",
 		details: "Introspective, narrative-driven and thought-provoking.",
 	},
 	{
 		name: "Snoop Dogg",
-		imageSrc: "/artists/black_thought.jpg",
+		imageSrc: "/artists/snoop.jpg",
 		details:
 			"Smooth, laid-back flow, and a signature blend of West Coast swagger.",
 	},

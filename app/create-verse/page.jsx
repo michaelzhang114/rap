@@ -42,7 +42,7 @@ const CreateVerse = () => {
 	};
 
 	return (
-		<div>
+		<div className="mx-4">
 			{/* Old form to create verse */}
 			{/* <Form
 				type="Create"
