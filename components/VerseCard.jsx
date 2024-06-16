@@ -32,7 +32,13 @@ const VerseCard = ({ verse, handleTagClick, handleEdit, handleDelete }) => {
 				</figure> */}
 				<div className="card-body">
 					<h2 className="card-title">{verse.title}</h2>
-					<p>{verse.contents}</p>
+					<textarea
+						className="textarea"
+						value={verse.contents}
+						readOnly
+						rows="4"
+						cols="35"
+					/>
 					<div className="card-actions justify-end">
 						<Image
 							src={verse.creator.image}

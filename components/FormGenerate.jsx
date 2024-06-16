@@ -101,7 +101,7 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 					<article className="prose lg:prose-xl mb-4">
 						<h2>Your Verse</h2>
 					</article>{" "}
-					<div className="flex flex-col w-6/12">
+					<div className="flex flex-col w-full">
 						<textarea
 							className="textarea textarea-secondary mb-4"
 							rows="10"
