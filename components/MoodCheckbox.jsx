@@ -14,8 +14,8 @@ const MoodCheckbox = ({ moods, setMoods, onSelect }) => {
 				[event.target.value]: false,
 			});
 		}
-		console.log("update checkbox");
-		onSelect(moods);
+		// console.log("update checkbox");
+		// onSelect(moods);
 	};
 
 	return (
