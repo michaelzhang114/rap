@@ -1,10 +1,17 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import CustomArtistRadio from "./CustomArtistRadio";
+import MoodCheckbox from "./MoodCheckbox";
+
+const getTrueKeys = (obj) => {
+	return Object.keys(obj).filter((key) => obj[key]);
+};
 
 const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
-	const [payload, setPayload] = useState({ word: "", artist: "" });
+	const [shouldCallAPI, setShouldCallAPI] = useState(false);
+
+	const [payload, setPayload] = useState({ word: "", moods: [] });
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState("");
 
@@ -15,6 +22,23 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 		setPayload({ ...payload, word: value });
 	};
 
+	// mood selection
+	const [selectedMoods, setSelectedMoods] = useState([]);
+	const handleMoodsSelect = (value) => {
+		console.log("handleMoodsSelect");
+		// console.log(value);
+		// setSelectedMoods(value);
+		setPayload({ ...payload, moods: getTrueKeys(moods) });
+	};
+	const [moods, setMoods] = useState({
+		anger: false,
+		anxiety: false,
+		disappointment: false,
+		envy: false,
+		pride: false,
+	});
+	const trueMoods = getTrueKeys(moods);
+
 	// keep track of if the "generate" button has been pressed
 	const [hasGenerated, setHasGenerated] = useState(false);
 
@@ -22,22 +46,54 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 		e.preventDefault();
 		setLoading(true);
 		setError("");
+		console.log("what i should send");
+		console.log(getTrueKeys(moods));
 
-		try {
-			console.log(
-				`calling api with payload of ${JSON.stringify(payload)}`
-			);
-			const response = await axios.post("/api/generate", { payload });
-			console.log(response);
-			setHaiku({ title: "generated", contents: response.data });
-		} catch (err) {
-			console.log(err);
-			setError("Failed to generate. Please try again.");
-		} finally {
-			setLoading(false);
-			setHasGenerated(true);
-		}
+		setPayload((prevPayload) => ({
+			...payload,
+			moods: getTrueKeys(moods),
+		}));
+
+		setShouldCallAPI(true);
 	};
+
+	// useEffect(() => {
+	// 	console.log(`moods: ${JSON.stringify(moods)}`);
+	// 	console.log(`selected moods: ${JSON.stringify(selectedMoods)}`);
+	// }, [moods]);
+
+	useEffect(() => {
+		if (loading) {
+			console.log("what I actually send");
+			console.log(payload);
+			setLoading(false); // Reset loading state after logging
+		}
+	}, [payload, loading]);
+
+	useEffect(() => {
+		if (shouldCallAPI) {
+			const callAPI = async () => {
+				try {
+					console.log(
+						`calling api with payload of ${JSON.stringify(payload)}`
+					);
+					const response = await axios.post("/api/generate", {
+						payload,
+					});
+					console.log(response);
+					setHaiku({ title: "generated", contents: response.data });
+				} catch (err) {
+					console.log(err);
+					setError("Failed to generate. Please try again.");
+				} finally {
+					setLoading(false);
+					setHasGenerated(true);
+					setShouldCallAPI(false);
+				}
+			};
+			callAPI();
+		}
+	}, [payload, shouldCallAPI]);
 
 	return (
 		<section>
@@ -79,7 +135,19 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 						<h2>2. Pick Your Mood</h2>
 						<p>TODO</p>
 					</article>{" "}
-					{/* <button className="btn btn-outline btn-sm">Default</button> */}
+					<MoodCheckbox
+						moods={moods}
+						setMoods={setMoods}
+						onSelect={handleMoodsSelect}
+					></MoodCheckbox>
+					<div>
+						<label>Moods selected:</label>
+						<ul>
+							{trueMoods.map((key) => (
+								<li key={key}>{key}</li>
+							))}
+						</ul>
+					</div>
 				</div>
 				<div className="my-6">
 					<article className="prose lg:prose-xl mb-4">

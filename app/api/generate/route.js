@@ -10,13 +10,22 @@ export const POST = async (request, res) => {
 		const { payload } = await request.json();
 
 		console.log(`backend got ${JSON.stringify(payload)}`);
+		console.log(payload.moods[0]);
 
 		if (!payload.word) {
 			return Response.json(
-				{ message: "Word is required" },
+				{ message: "Artist is required" },
 				{ status: 400 }
 			);
 		}
+
+		if (!payload.moods) {
+			return Response.json(
+				{ message: "Mood is required" },
+				{ status: 400 }
+			);
+		}
+		// const moods = payload.moods;
 
 		console.log("here");
 
