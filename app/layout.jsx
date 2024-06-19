@@ -20,7 +20,7 @@ const RootLayout = ({ children }) => {
 				<Provider>
 					<main className="app">
 						<Nav />
-						<div className="container mx-auto max-w-full sm:max-w-sm md:max-w-lg lg:max-w-4xl xl:max-w-6xl">
+						<div className="container mx-auto max-w-full px-1 md:px-3 lg:px-8">
 							{children}
 						</div>
 					</main>
@@ -31,3 +31,4 @@ const RootLayout = ({ children }) => {
 };
 
 export default RootLayout;
+//sm:max-w-sm md:max-w-lg lg:max-w-4xl xl:max-w-6xl

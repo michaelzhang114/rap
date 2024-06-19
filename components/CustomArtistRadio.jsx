@@ -96,7 +96,7 @@ const CustomArtistRadio = ({ label, onSelect }) => {
 
 	const handleOptionChange = (event) => {
 		const value = event.target.value;
-		console.log(value);
+		// console.log(value);
 		setSelectedOption(value);
 		onSelect(value);
 	};

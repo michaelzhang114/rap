@@ -135,7 +135,7 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 						// }
 					/>
 				</label> */}
-				<div className="flex flex-col mt-10">
+				<div className="flex flex-col mt-10" data-aos="zoom-y-out">
 					<article className="prose lg:prose-xl mb-4">
 						<h2>1. Pick Your Inspiration</h2>
 					</article>
@@ -147,7 +147,11 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 						></CustomArtistRadio>
 					</div>
 				</div>
-				<div className="my-7 pb-5">
+				<div
+					className="my-7 pb-5"
+					data-aos="zoom-y-out"
+					data-aos-delay="150"
+				>
 					<article className="prose lg:prose-xl mb-4">
 						<h2>2. Pick Your Mood</h2>
 					</article>{" "}
@@ -157,7 +161,7 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 						onSelect={handleMoodsSelect}
 					></MoodCheckbox>
 				</div>
-				<div className="my-6">
+				<div className="my-6" data-aos="zoom-y-out">
 					<article className="prose lg:prose-xl mb-4">
 						<h2>3. Generate</h2>
 					</article>{" "}

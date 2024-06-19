@@ -49,6 +49,14 @@ const Nav = () => {
 						<ul
 							tabIndex={0}
 							className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+							onClick={() => {
+								if (
+									document.activeElement instanceof
+									HTMLElement
+								) {
+									document.activeElement.blur();
+								}
+							}}
 						>
 							<li>
 								<Link href="/create-verse">Generate Verse</Link>{" "}
@@ -69,11 +77,6 @@ const Nav = () => {
 								>
 									Generate Verse
 								</Link>{" "}
-								{/* <Link href="/create-verse">
-									<button className="btn btn-accent">
-										Generate Verse
-									</button>
-								</Link> */}
 							</li>
 							{/* <li>
 								<details>
@@ -111,6 +114,14 @@ const Nav = () => {
 									<ul
 										tabIndex={0}
 										className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+										onClick={() => {
+											if (
+												document.activeElement instanceof
+												HTMLElement
+											) {
+												document.activeElement.blur();
+											}
+										}}
 									>
 										<li>
 											<Link

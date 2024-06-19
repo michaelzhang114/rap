@@ -5,9 +5,13 @@ import { useState, useEffect } from "react";
 // import PromptCard from "./PromptCard";
 import VerseCard from "./VerseCard";
 
-const VerseCardList = ({ data, handleTagClick, handleDelete }) => {
-	return data ? (
-		<div className="flex flex-row flex-wrap">
+const VerseCardList = ({ data, handleTagClick, handleDelete, loading }) => {
+	return loading ? (
+		<span className="loading loading-ring loading-lg"></span>
+	) : data.length == 0 ? (
+		<p>You don't have any verses.</p>
+	) : (
+		<div className="flex flex-row flex-wrap mx-auto">
 			{data.map((verse) => (
 				<VerseCard
 					key={verse._id}
@@ -19,12 +23,12 @@ const VerseCardList = ({ data, handleTagClick, handleDelete }) => {
 				/>
 			))}
 		</div>
-	) : (
-		<div></div>
 	);
 };
 
 const Feed = () => {
+	const [loading, setLoading] = useState(false);
+
 	const [searchText, setSearchText] = useState("");
 
 	const [verses, setVerses] = useState([]);
@@ -52,9 +56,11 @@ const Feed = () => {
 
 	useEffect(() => {
 		const fetchVerses = async () => {
+			setLoading(true);
 			const response = await fetch("/api/verse");
 			const data = await response.json();
 			setVerses(data);
+			setLoading(false);
 		};
 		fetchVerses();
 	}, []);
@@ -76,6 +82,7 @@ const Feed = () => {
 					data={verses}
 					handleTagClick={() => {}}
 					handleDelete={handleDelete}
+					loading={loading}
 				/>
 			</div>
 		</section>
