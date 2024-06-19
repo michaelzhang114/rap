@@ -23,27 +23,27 @@ const artistsList = [
 	},
 	{
 		name: "Chance the Rapper",
-		imageSrc: "/artists/black_thought.jpg",
+		imageSrc: "/artists/chance.png",
 		details:
-			"text text text text text text text text text text text text text.",
+			"Vibrant and uplifting storytelling, in a gospel-infused style.",
 	},
 	{
 		name: "21 Savage",
-		imageSrc: "/artists/black_thought.jpg",
+		imageSrc: "/artists/21_savage.jpg",
 		details:
-			"text text text text text text text text text text text text text.",
+			"Unfiltered depictions of street life. Gritty & minimalist delivery.",
 	},
 	{
 		name: "Lil Pump",
-		imageSrc: "/artists/black_thought.jpg",
+		imageSrc: "/artists/lil_pump.jpg",
 		details:
-			"text text text text text text text text text text text text text.",
+			"Bold & straightforward rhymes delivered with a carefree and energetic flow.",
 	},
 	{
 		name: "Logic",
-		imageSrc: "/artists/black_thought.jpg",
+		imageSrc: "/artists/logic.jpg",
 		details:
-			"text text text text text text text text text text text text text.",
+			"Introspective exploration of identity, mental health, & social issues.",
 	},
 ];
 
