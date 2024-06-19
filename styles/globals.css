@@ -120,3 +120,9 @@ body {
     text-wrap: balance;
   }
 } */
+
+.grid_scroll_two_rows {
+	@apply grid grid-rows-[auto_auto] grid-flow-col overflow-x-scroll gap-y-3 gap-x-0;
+	/* auto auto is telling the browser to render two rows, if needed */
+	/* https://inthedigital.co.uk/how-to-create-a-horizontally-scrolling-section-with-2-rows-using-css-grid/ */
+}

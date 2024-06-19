@@ -139,7 +139,8 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 					<article className="prose lg:prose-xl mb-4">
 						<h2>1. Pick Your Inspiration</h2>
 					</article>
-					<div className="overflow-x-auto w-full mb-4 pb-5">
+					{/* <div className="overflow-x-auto w-full mb-4 pb-5"> */}
+					<div className="">
 						<CustomArtistRadio
 							label="my custom checkbox"
 							onSelect={handleArtistSelect}

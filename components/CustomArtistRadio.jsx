@@ -48,15 +48,15 @@ const artistsList = [
 ];
 
 const ArtistRadio = ({ options, handleOptionChange, selectedOption }) => (
-	<div className="flex flex-row">
+	<div className="grid_scroll_two_rows">
 		{options.map((artist) => (
 			<div
-				className={`card card-side shadow-xl mx-3 ${
+				className={`card card-compact card-side shadow-xl mx-3 ${
 					selectedOption == artist.name ? "bg-accent" : "bg-base-300"
 				}`}
 				key={artist.name}
 			>
-				<label className="label cursor-pointer px-6 py-4">
+				<label className="label cursor-pointer px-4 py-4">
 					<div className="flex flex-row">
 						<div className="avatar">
 							<div className="w-24 rounded-xl">
