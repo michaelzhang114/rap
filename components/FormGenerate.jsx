@@ -32,10 +32,16 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 	};
 	const [moods, setMoods] = useState({
 		anger: false,
-		anxiety: false,
+		anxious: false,
 		disappointment: false,
-		envy: false,
+		despair: false,
 		pride: false,
+		joyful: false,
+		powerful: false,
+		optimistic: false,
+		disapproval: false,
+		confused: false,
+		excited: false,
 	});
 	const trueMoods = getTrueKeys(moods);
 
@@ -133,7 +139,6 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 				<div className="my-6">
 					<article className="prose lg:prose-xl mb-4">
 						<h2>2. Pick Your Mood</h2>
-						<p>TODO</p>
 					</article>{" "}
 					<MoodCheckbox
 						moods={moods}

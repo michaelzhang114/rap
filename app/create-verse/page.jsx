@@ -43,24 +43,11 @@ const CreateVerse = () => {
 
 	return (
 		<div className="mx-4">
-			{/* Old form to create verse */}
-			{/* <Form
-				type="Create"
-				verse={verse}
-				setVerse={setVerse}
-				submitting={submitting}
-				handleSubmit={createVerse}
-			/>{" "}
-			<br></br>
-			<br></br> */}
-
 			<FormGenerate
 				handleSubmit={createVerse}
 				haiku={verse}
 				setHaiku={setVerse}
 			></FormGenerate>
-
-			{/* <VerseOutput></VerseOutput> */}
 		</div>
 	);
 };

@@ -5,12 +5,20 @@ const openai = new OpenAI({
 	apiKey: process.env.OPENAI_API_KEY || "",
 });
 
+const formatArray = (arr) => {
+	if (arr.length === 0) return "";
+	if (arr.length === 1) return `with a mood of ${arr[0]}`;
+	if (arr.length === 2) return `with moods of ${arr[0]} and ${arr[1]}`;
+	const lastItem = arr.pop();
+	return `with moods of ${arr.join(", ")}, and ${lastItem}`;
+};
+
 export const POST = async (request, res) => {
 	try {
 		const { payload } = await request.json();
 
 		console.log(`backend got ${JSON.stringify(payload)}`);
-		console.log(payload.moods[0]);
+		// console.log(payload.moods[0]);
 
 		if (!payload.word) {
 			return Response.json(
@@ -25,15 +33,19 @@ export const POST = async (request, res) => {
 				{ status: 400 }
 			);
 		}
+
 		// const moods = payload.moods;
 
-		console.log("here");
+		const prompt = `Write a Haiku about ${payload.word}, ${formatArray(
+			payload.moods
+		)}`;
+		console.log(prompt);
 
 		const completion = await openai.chat.completions.create({
 			messages: [
 				{
 					role: "system",
-					content: `Write a Haiku about ${payload.word}`,
+					content: prompt,
 				},
 			],
 			model: "gpt-3.5-turbo",

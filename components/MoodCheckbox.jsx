@@ -19,18 +19,12 @@ const MoodCheckbox = ({ moods, setMoods, onSelect }) => {
 	};
 
 	return (
-		<div>
+		<div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-2">
 			{Object.keys(moods).map((m) => (
-				// <input
-				// 	type="checkbox"
-				// 	onChange={handleToggle}
-				// 	key={key}
-				// 	name={key}
-				// 	checked={state[key]}
-				// />
-
-				<label className="label cursor-pointer" key={m}>
-					<span className="label-text">{m}</span>
+				<label
+					className="label cursor-pointer card card-side shadow-xl mx-3 bg-base-300 px-4"
+					key={m}
+				>
 					<input
 						type="checkbox"
 						// defaultChecked
@@ -38,28 +32,9 @@ const MoodCheckbox = ({ moods, setMoods, onSelect }) => {
 						className="checkbox"
 						onChange={handleChange}
 					/>
+					<span className="label-text mx-auto">{m}</span>
 				</label>
 			))}
-			{/* <label className="label cursor-pointer">
-				<span className="label-text">first me</span>
-				<input
-					type="checkbox"
-					// defaultChecked
-					value="anger"
-					className="checkbox"
-					onChange={handleChange}
-				/>
-			</label>
-			<label className="label cursor-pointer">
-				<span className="label-text">second me</span>
-				<input
-					type="checkbox"
-					// defaultChecked
-					value="anxiety"
-					className="checkbox"
-					onChange={handleChange}
-				/>
-			</label> */}
 		</div>
 	);
 };
