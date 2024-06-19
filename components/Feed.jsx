@@ -9,7 +9,7 @@ const VerseCardList = ({ data, handleTagClick, handleDelete, loading }) => {
 	return loading ? (
 		<span className="loading loading-ring loading-lg"></span>
 	) : data.length == 0 ? (
-		<p>You don't have any verses.</p>
+		<p>You don&apos;t have any verses.</p>
 	) : (
 		<div className="flex flex-row flex-wrap mx-auto">
 			{data.map((verse) => (
