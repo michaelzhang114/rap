@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Home = () => {
@@ -57,12 +58,12 @@ const Home = () => {
 								data-aos-delay="300"
 							>
 								<div>
-									<a
+									<Link
 										className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
-										href="#0"
+										href="/create-verse"
 									>
 										Start (it&apos;s free!)
-									</a>
+									</Link>
 								</div>
 								<div>
 									<a
