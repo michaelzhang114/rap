@@ -42,7 +42,7 @@ const CreateVerse = () => {
 	};
 
 	return (
-		<div className="mx-4">
+		<div className="mx-4 my-6">
 			<FormGenerate
 				handleSubmit={createVerse}
 				haiku={verse}

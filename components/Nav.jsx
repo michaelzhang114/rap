@@ -65,9 +65,9 @@ const Nav = () => {
 											Generate Verse
 										</Link>
 									</li>
-									<li>
+									{/* <li>
 										<a>Settings</a>
-									</li>
+									</li> */}
 									<li>
 										<Link
 											onClick={() => {

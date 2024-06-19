@@ -122,7 +122,7 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 						// }
 					/>
 				</label> */}
-				<div className="flex flex-col my-6">
+				<div className="flex flex-col">
 					<article className="prose lg:prose-xl mb-4">
 						<h2>1. Pick Your Style</h2>
 					</article>
