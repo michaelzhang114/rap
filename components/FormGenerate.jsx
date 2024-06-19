@@ -133,8 +133,6 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 							className="flex flex-row"
 						></CustomArtistRadio>
 					</div>
-
-					<p>Selected: {selectedArtist}</p>
 				</div>
 				<div className="my-6">
 					<article className="prose lg:prose-xl mb-4">
@@ -145,6 +143,12 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 						setMoods={setMoods}
 						onSelect={handleMoodsSelect}
 					></MoodCheckbox>
+				</div>
+				<div className="my-6">
+					<article className="prose lg:prose-xl mb-4">
+						<h2>3. Generate</h2>
+					</article>{" "}
+					<p>Style: {selectedArtist}</p>
 					<div>
 						<label>Moods selected:</label>
 						<ul>
@@ -153,11 +157,6 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 							))}
 						</ul>
 					</div>
-				</div>
-				<div className="my-6">
-					<article className="prose lg:prose-xl mb-4">
-						<h2>3. Generate</h2>
-					</article>{" "}
 					<button
 						className="btn btn-primary"
 						type="submit"

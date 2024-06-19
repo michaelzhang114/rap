@@ -7,8 +7,8 @@ import { AOSInit } from "@components/aos";
 // import { Html, Head, Main, NextScript } from "next/document";
 
 export const metadata = {
-	title: "rap",
-	description: "rap generator",
+	title: "Rhyme Machine",
+	description: "Rhyme Machine - Write Rap Bars Fast",
 };
 
 const RootLayout = ({ children }) => {

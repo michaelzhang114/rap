@@ -59,7 +59,7 @@ const Home = () => {
 							>
 								<div>
 									<Link
-										className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
+										className="btn btn-accent hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
 										href="/create-verse"
 									>
 										Start (it&apos;s free!)
@@ -67,7 +67,7 @@ const Home = () => {
 								</div>
 								<div>
 									<a
-										className="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4"
+										className="btn btn-ghost hover:bg-gray-800 w-full sm:w-auto sm:ml-4"
 										href="#0"
 									>
 										Learn more

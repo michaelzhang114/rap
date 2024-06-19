@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const Nav = () => {
 	const { data: session } = useSession();
@@ -62,13 +63,17 @@ const Nav = () => {
 					<div className="navbar-center hidden lg:flex">
 						<ul className="menu menu-horizontal px-1">
 							<li>
-								{/* <Link href="/create-verse">Generate Verse</Link>{" "} */}
-
-								<Link href="/create-verse">
+								<Link
+									href="/create-verse"
+									className="btn btn-accent"
+								>
+									Generate Verse
+								</Link>{" "}
+								{/* <Link href="/create-verse">
 									<button className="btn btn-accent">
 										Generate Verse
 									</button>
-								</Link>
+								</Link> */}
 							</li>
 							{/* <li>
 								<details>
