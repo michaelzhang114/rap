@@ -48,6 +48,9 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 	// keep track of if the "generate" button has been pressed
 	const [hasGenerated, setHasGenerated] = useState(false);
 
+	// use today's date as the title of the verse
+	const [todayDate, setTodayDate] = useState("");
+
 	const handleGenerate = async (e) => {
 		e.preventDefault();
 		setLoading(true);
@@ -68,13 +71,20 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 	// 	console.log(`selected moods: ${JSON.stringify(selectedMoods)}`);
 	// }, [moods]);
 
+	// useEffect(() => {
+	// 	if (loading) {
+	// 		console.log("what I actually send");
+	// 		console.log(payload);
+	// 		setLoading(false); // Reset loading state after logging
+	// 	}
+	// }, [payload, loading]);
+
 	useEffect(() => {
-		if (loading) {
-			console.log("what I actually send");
-			console.log(payload);
-			setLoading(false); // Reset loading state after logging
-		}
-	}, [payload, loading]);
+		const currentDate = new Date();
+		const options = { year: "numeric", month: "short", day: "numeric" };
+		const formattedDate = currentDate.toLocaleDateString("en-US", options);
+		setTodayDate(formattedDate);
+	}, []);
 
 	useEffect(() => {
 		if (shouldCallAPI) {
@@ -87,7 +97,10 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 						payload,
 					});
 					console.log(response);
-					setHaiku({ title: "generated", contents: response.data });
+					setHaiku({
+						title: `${todayDate}`,
+						contents: response.data,
+					});
 				} catch (err) {
 					console.log(err);
 					setError("Failed to generate. Please try again.");
@@ -122,11 +135,11 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 						// }
 					/>
 				</label> */}
-				<div className="flex flex-col">
+				<div className="flex flex-col mt-10">
 					<article className="prose lg:prose-xl mb-4">
-						<h2>1. Pick Your Style</h2>
+						<h2>1. Pick Your Inspiration</h2>
 					</article>
-					<div className="overflow-x-auto w-full">
+					<div className="overflow-x-auto w-full mb-4 pb-5">
 						<CustomArtistRadio
 							label="my custom checkbox"
 							onSelect={handleArtistSelect}
@@ -134,7 +147,7 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 						></CustomArtistRadio>
 					</div>
 				</div>
-				<div className="my-6">
+				<div className="my-7 pb-5">
 					<article className="prose lg:prose-xl mb-4">
 						<h2>2. Pick Your Mood</h2>
 					</article>{" "}
@@ -162,7 +175,11 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 						type="submit"
 						disabled={loading}
 					>
-						{loading ? "Generating..." : "Generate Bars"}
+						{loading ? (
+							<span className="loading loading-ring loading-lg"></span>
+						) : (
+							"Generate Bars"
+						)}
 					</button>
 					{/* <button className="btn btn-outline">Cancel</button> */}
 				</div>
