@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import VerseCard from "./VerseCard";
 
 const VerseCardList = ({ data, handleTagClick, handleDelete }) => {
-	return (
+	return data ? (
 		<div className="flex flex-row flex-wrap">
 			{data.map((verse) => (
 				<VerseCard
@@ -19,6 +19,8 @@ const VerseCardList = ({ data, handleTagClick, handleDelete }) => {
 				/>
 			))}
 		</div>
+	) : (
+		<div></div>
 	);
 };
 
