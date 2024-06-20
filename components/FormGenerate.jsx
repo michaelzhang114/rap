@@ -100,8 +100,8 @@ const FormGenerate = ({
 
 	useEffect(() => {
 		// set state to be the number of credits at component load
-		console.log(session?.user?.credits);
-		console.log("set");
+		// console.log(session?.user?.credits);
+		// console.log("set");
 
 		setCredits(session?.user?.credits);
 	}, [session]);
@@ -197,7 +197,7 @@ const FormGenerate = ({
 							</div>
 						)}
 					</label>
-					<div className="flex flex-row">
+					<div className="flex flex-row my-1">
 						<label>Moods selected:</label>
 						<ul className="flex flex-row">
 							{trueMoods.map((key) => (
@@ -209,9 +209,17 @@ const FormGenerate = ({
 							))}
 						</ul>
 					</div>
-					<div className="flex flex-row items-center gap-3">
+					<div className="flex flex-row items-center gap-3 mt-3">
+						{/* <button
+							type="button"
+							class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+						>
+							Purple to Blue
+						</button> */}
+
 						<button
-							className="btn btn-primary my-4"
+							// className="btn btn-primary my-4"
+							className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
 							type="submit"
 							disabled={loading || credits == 0}
 						>
@@ -238,7 +246,7 @@ const FormGenerate = ({
 					</article>{" "}
 					<div className="flex flex-col">
 						<textarea
-							className="textarea textarea-secondary mb-4"
+							className="textarea textarea-accent mb-4"
 							rows="20"
 							cols="50"
 							placeholder="Bio"

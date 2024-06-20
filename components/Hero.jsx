@@ -33,7 +33,8 @@ const Hero = () => {
 							>
 								<div>
 									<Link
-										className="btn btn-accent hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
+										// className="btn btn-accent hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
+										className="btn text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 w-full mb-4 sm:w-auto sm:mb-0"
 										href="/create-verse"
 									>
 										Start (it&apos;s free!)
