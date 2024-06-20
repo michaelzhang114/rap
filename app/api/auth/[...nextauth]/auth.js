@@ -27,6 +27,7 @@ export const config = {
 				email: session.user.email,
 			});
 			session.user.id = sessionUser._id.toString();
+			session.user.credits = sessionUser.credits;
 			return session;
 		},
 		async signIn({ profile }) {
@@ -46,6 +47,7 @@ export const config = {
 						email: profile.email,
 						// username: profile.name.replace(" ", "").toLowerCase(),
 						image: profile.picture,
+						credits: 10,
 					});
 					console.log("user created");
 				}

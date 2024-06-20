@@ -13,6 +13,9 @@ const userSchema = new Schema({
 	image: {
 		type: String,
 	},
+	credits: {
+		type: Number,
+	},
 });
 
 const User = models.User || model("User", userSchema);

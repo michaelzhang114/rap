@@ -8,10 +8,13 @@ import { useRouter } from "next/navigation";
 import FormGenerate from "@components/FormGenerate";
 import VerseOutput from "@components/VerseOutput";
 
+import { connectToDB } from "@utils/database";
+
 const CreateVerse = () => {
 	const router = useRouter();
 	const { data: session } = useSession();
 	const [submitting, setSubmitting] = useState(false);
+	const [isSubmitted, setIsSubmitted] = useState(false);
 	const [verse, setVerse] = useState({
 		title: "",
 		contents: "",
@@ -32,12 +35,14 @@ const CreateVerse = () => {
 			});
 
 			if (response.ok) {
-				router.push("/profile");
+				// display "saved to profile!"
+				// router.push("/profile");
 			}
 		} catch (error) {
 			console.log(error);
 		} finally {
 			setSubmitting(false);
+			setIsSubmitted(true);
 		}
 	};
 
@@ -45,6 +50,8 @@ const CreateVerse = () => {
 		<div className="mx-4 my-6">
 			<FormGenerate
 				handleSubmit={createVerse}
+				submitting={submitting}
+				isSubmitted={isSubmitted}
 				haiku={verse}
 				setHaiku={setVerse}
 			></FormGenerate>

@@ -37,7 +37,7 @@ const artistsList = [
 		name: "Lil Pump",
 		imageSrc: "/artists/lil_pump.jpg",
 		details:
-			"Bold & straightforward rhymes delivered with a carefree and energetic flow.",
+			"Bold & straightforward rhymes delivered with an energetic flow.",
 	},
 	{
 		name: "Logic",

@@ -29,7 +29,7 @@ const MoodCheckbox = ({ moods, setMoods, onSelect }) => {
 						type="checkbox"
 						// defaultChecked
 						value={m}
-						className="checkbox"
+						className="checkbox checkbox-accent"
 						onChange={handleChange}
 					/>
 					<span className="label-text mx-auto">{m}</span>

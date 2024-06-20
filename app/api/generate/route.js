@@ -1,5 +1,8 @@
 import axios from "axios";
 import { OpenAI } from "openai";
+import { getServerSession } from "next-auth/next";
+import { config } from "../auth/[...nextauth]/auth";
+import User from "@models/user";
 
 const openai = new OpenAI({
 	apiKey: process.env.OPENAI_API_KEY || "",
@@ -36,9 +39,11 @@ export const POST = async (request, res) => {
 
 		// const moods = payload.moods;
 
-		const prompt = `Write a Haiku about ${payload.word}, ${formatArray(
-			payload.moods
-		)}`;
+		const prompt = `Write one rap verse (100 words maximum) in the style of ${
+			payload.word
+		}, ${formatArray(payload.moods)}. Don't include ${
+			payload.word
+		} in the rap.`;
 		console.log(prompt);
 
 		const completion = await openai.chat.completions.create({
@@ -55,6 +60,21 @@ export const POST = async (request, res) => {
 		} else {
 			console.log("no completion");
 		}
+
+		const session = await getServerSession(config);
+		console.log("this session");
+		console.log(session);
+
+		// //decrement credit count
+		const filter = { email: session?.user?.email };
+		const update = { credits: session?.user?.credits - 1 };
+
+		const out = await User.findOneAndUpdate(filter, update, {
+			new: true,
+		});
+
+		console.log(out.email);
+		console.log(out.credits);
 
 		return Response.json(`${completion.choices[0].message.content}`, {
 			status: 200,

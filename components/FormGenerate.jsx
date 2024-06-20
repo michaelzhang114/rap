@@ -3,12 +3,24 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import CustomArtistRadio from "./CustomArtistRadio";
 import MoodCheckbox from "./MoodCheckbox";
+import { useSession } from "next-auth/react";
+import FormSubmit from "./FormSubmit";
 
 const getTrueKeys = (obj) => {
 	return Object.keys(obj).filter((key) => obj[key]);
 };
 
-const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
+const FormGenerate = ({
+	handleSubmit,
+	haiku,
+	setHaiku,
+	submitting,
+	isSubmitted,
+}) => {
+	// need to use session to get the number of credits the current user has
+	const { data: session, status, update } = useSession();
+	const [credits, setCredits] = useState(0);
+
 	const [shouldCallAPI, setShouldCallAPI] = useState(false);
 
 	const [payload, setPayload] = useState({ word: "", moods: [] });
@@ -87,6 +99,14 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 	}, []);
 
 	useEffect(() => {
+		// set state to be the number of credits at component load
+		console.log(session?.user?.credits);
+		console.log("set");
+
+		setCredits(session?.user?.credits);
+	}, [session]);
+
+	useEffect(() => {
 		if (shouldCallAPI) {
 			const callAPI = async () => {
 				try {
@@ -108,6 +128,7 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 					setLoading(false);
 					setHasGenerated(true);
 					setShouldCallAPI(false);
+					update();
 				}
 			};
 			callAPI();
@@ -154,7 +175,7 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 					data-aos-delay="150"
 				>
 					<article className="prose lg:prose-xl mb-4">
-						<h2>2. Pick Your Mood</h2>
+						<h2>2. Pick Your Mood(s)</h2>
 					</article>{" "}
 					<MoodCheckbox
 						moods={moods}
@@ -166,36 +187,56 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 					<article className="prose lg:prose-xl mb-4">
 						<h2>3. Generate</h2>
 					</article>{" "}
-					<p>Style: {selectedArtist}</p>
-					<div>
+					<label>
+						Style:{" "}
+						{selectedArtist == "" ? (
+							<div></div>
+						) : (
+							<div className="badge badge-accent">
+								{selectedArtist}
+							</div>
+						)}
+					</label>
+					<div className="flex flex-row">
 						<label>Moods selected:</label>
-						<ul>
+						<ul className="flex flex-row">
 							{trueMoods.map((key) => (
-								<li key={key}>{key}</li>
+								<li key={key} className="mx-1">
+									<div className="badge badge-accent">
+										{key}
+									</div>
+								</li>
 							))}
 						</ul>
 					</div>
-					<button
-						className="btn btn-primary"
-						type="submit"
-						disabled={loading}
-					>
-						{loading ? (
-							<span className="loading loading-ring loading-lg"></span>
-						) : (
-							"Generate Bars"
-						)}
-					</button>
+					<div className="flex flex-row items-center gap-3">
+						<button
+							className="btn btn-primary my-4"
+							type="submit"
+							disabled={loading || credits == 0}
+						>
+							{loading ? (
+								<span className="loading loading-ring loading-lg"></span>
+							) : (
+								"Write me a verse"
+							)}
+						</button>
+						<label>Credits remaining: {credits}</label>
+					</div>
 					{/* <button className="btn btn-outline">Cancel</button> */}
 				</div>
 			</form>
 			{error && <p style={{ color: "red" }}>{error}</p>}
 			{haiku && hasGenerated && (
-				<div className="container">
+				<div
+					className="container"
+					data-aos="zoom-y-out"
+					data-aos-delay="400"
+				>
 					<article className="prose lg:prose-xl mb-4">
 						<h2>Your Verse</h2>
 					</article>{" "}
-					<div className="flex flex-col w-full">
+					<div className="flex flex-col">
 						<textarea
 							className="textarea textarea-secondary mb-4"
 							rows="10"
@@ -209,12 +250,11 @@ const FormGenerate = ({ handleSubmit, haiku, setHaiku }) => {
 								}))
 							}
 						/>
-						<button
-							className="btn btn-primary max-w-xs"
-							onClick={handleSubmit}
-						>
-							Save{" "}
-						</button>
+						<FormSubmit
+							handleSubmit={handleSubmit}
+							submitting={submitting}
+							isSubmitted={isSubmitted}
+						/>
 					</div>
 				</div>
 			)}
