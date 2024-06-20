@@ -12,7 +12,7 @@ const VerseCardList = ({ data, handleTagClick, handleDelete, loading }) => {
 		<p>You don&apos;t have any verses.</p>
 	) : (
 		<div className="flex flex-row flex-wrap mx-auto">
-			{data.map((verse) => (
+			{data.toReversed().map((verse) => (
 				<VerseCard
 					key={verse._id}
 					verse={verse}

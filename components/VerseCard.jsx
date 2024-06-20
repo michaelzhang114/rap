@@ -33,7 +33,7 @@ const VerseCard = ({ verse, handleTagClick, handleEdit, handleDelete }) => {
 						className="textarea"
 						value={verse.contents}
 						readOnly
-						rows="4"
+						rows="8"
 						cols="30"
 					/>
 					<div className="card-actions justify-end">

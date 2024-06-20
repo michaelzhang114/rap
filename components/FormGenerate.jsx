@@ -158,7 +158,7 @@ const FormGenerate = ({
 				</label> */}
 				<div className="flex flex-col mt-10" data-aos="zoom-y-out">
 					<article className="prose lg:prose-xl mb-4">
-						<h2>1. Pick Your Inspiration</h2>
+						<h2>1. Select Your Inspiration</h2>
 					</article>
 					{/* <div className="overflow-x-auto w-full mb-4 pb-5"> */}
 					<div className="">
@@ -239,7 +239,7 @@ const FormGenerate = ({
 					<div className="flex flex-col">
 						<textarea
 							className="textarea textarea-secondary mb-4"
-							rows="10"
+							rows="20"
 							cols="50"
 							placeholder="Bio"
 							value={haiku.contents}

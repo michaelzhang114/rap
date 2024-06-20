@@ -48,7 +48,7 @@ const artistsList = [
 ];
 
 const ArtistRadio = ({ options, handleOptionChange, selectedOption }) => (
-	<div className="grid_scroll_two_rows">
+	<div className="grid_scroll_two_rows pb-1">
 		{options.map((artist) => (
 			<div
 				className={`card card-compact card-side shadow-xl mx-3 ${
