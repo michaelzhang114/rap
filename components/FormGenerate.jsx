@@ -192,9 +192,9 @@ const FormGenerate = ({
 						{selectedArtist == "" ? (
 							<div></div>
 						) : (
-							<div className="badge badge-accent">
+							<span className="badge badge-accent">
 								{selectedArtist}
-							</div>
+							</span>
 						)}
 					</label>
 					<div className="flex flex-row my-1">
@@ -247,7 +247,7 @@ const FormGenerate = ({
 					<div className="flex flex-col">
 						<textarea
 							className="textarea textarea-accent mb-4"
-							rows="20"
+							rows="16"
 							cols="50"
 							placeholder="Bio"
 							value={haiku.contents}
