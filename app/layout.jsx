@@ -9,16 +9,18 @@ import { AOSInit } from "@components/aos";
 export const metadata = {
 	title: "Rhyme Machine",
 	description: "Rhyme Machine - Write Rap Bars Fast",
+	name: "google-site-verification",
+	conten: "09GzJY96n56J9BnzBFUnHK20HZ-8nBcKVHRO29VVl_c",
 };
 
 const RootLayout = ({ children }) => {
 	return (
 		<html lang="en">
 			<head>
-				<meta
+				{/* <meta
 					name="google-site-verification"
 					content="09GzJY96n56J9BnzBFUnHK20HZ-8nBcKVHRO29VVl_c"
-				/>
+				/> */}
 			</head>
 			<AOSInit />
 			<body className="box-border">
