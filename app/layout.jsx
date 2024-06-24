@@ -3,6 +3,7 @@ import "@styles/globals.css";
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
 import { AOSInit } from "@components/aos";
+import Footer from "@components/Footer";
 
 // import { Html, Head, Main, NextScript } from "next/document";
 
@@ -30,6 +31,7 @@ const RootLayout = ({ children }) => {
 						<div className="container mx-auto max-w-full px-1 md:px-3 lg:px-8">
 							{children}
 						</div>
+						<Footer />
 					</main>
 				</Provider>
 

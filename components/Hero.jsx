@@ -24,7 +24,8 @@ const Hero = () => {
 								data-aos="zoom-y-out"
 								data-aos-delay="150"
 							>
-								Rhyme Machine uses AI to generate rap lyrics.
+								Rhyme Machine uses AI to generate rap lyrics in
+								the style of your favorite artist.
 							</p>
 							<div
 								className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center"
@@ -39,14 +40,6 @@ const Hero = () => {
 									>
 										Start (it&apos;s free!)
 									</Link>
-								</div>
-								<div>
-									<a
-										className="btn btn-ghost hover:bg-gray-800 w-full sm:w-auto sm:ml-4"
-										href="#0"
-									>
-										Learn more
-									</a>
 								</div>
 							</div>
 						</div>
