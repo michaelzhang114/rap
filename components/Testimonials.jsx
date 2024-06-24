@@ -18,7 +18,7 @@ export default function Testimonials() {
 						</h2>
 						<p className="text-xl">
 							Rhyme Machine gives you production-quality verses in
-							seconds. And it's completely free (for now).
+							seconds. And it&apos;s completely free (for now).
 						</p>
 					</div>
 
@@ -58,8 +58,8 @@ export default function Testimonials() {
 								</div>
 								<blockquote className="text-xl font-medium mb-4">
 									“ I love this product and would recommend it
-									to anyone who needs some bars quickly! It's
-									easy and fun to use! “
+									to anyone who needs some bars quickly!
+									It&apos;s easy and fun to use! “
 								</blockquote>
 								<cite className="block font-bold text-lg not-italic mb-1">
 									Michael
