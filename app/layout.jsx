@@ -14,7 +14,12 @@ export const metadata = {
 const RootLayout = ({ children }) => {
 	return (
 		<html lang="en">
-			<head></head>
+			<head>
+				<meta
+					name="google-site-verification"
+					content="09GzJY96n56J9BnzBFUnHK20HZ-8nBcKVHRO29VVl_c"
+				/>
+			</head>
 			<AOSInit />
 			<body className="box-border">
 				<Provider>
