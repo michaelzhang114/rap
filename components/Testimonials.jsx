@@ -80,7 +80,7 @@ export default function Testimonials() {
 						</h2>
 						<textarea
 							className="textarea textarea-accent mb-4 w-full"
-							rows="14"
+							rows="16"
 							placeholder="Bio"
 							readOnly
 							value={

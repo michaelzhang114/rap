@@ -12,7 +12,7 @@ import { connectToDB } from "@utils/database";
 
 const CreateVerse = () => {
 	const router = useRouter();
-	const { data: session } = useSession();
+	const { data: session, status } = useSession();
 	const [submitting, setSubmitting] = useState(false);
 	const [isSubmitted, setIsSubmitted] = useState(false);
 	const [verse, setVerse] = useState({
@@ -48,13 +48,19 @@ const CreateVerse = () => {
 
 	return (
 		<div className="mx-4 my-6">
-			<FormGenerate
-				handleSubmit={createVerse}
-				submitting={submitting}
-				isSubmitted={isSubmitted}
-				haiku={verse}
-				setHaiku={setVerse}
-			></FormGenerate>
+			{status === "unauthenticated" ? (
+				<div>
+					<p>Unauthenticated. Please sign in</p>
+				</div>
+			) : (
+				<FormGenerate
+					handleSubmit={createVerse}
+					submitting={submitting}
+					isSubmitted={isSubmitted}
+					haiku={verse}
+					setHaiku={setVerse}
+				></FormGenerate>
+			)}
 		</div>
 	);
 };
