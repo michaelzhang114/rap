@@ -11,7 +11,16 @@ export const metadata = {
 	title: "Rhyme Machine",
 	description: "Rhyme Machine - Write Rap Bars Fast",
 	name: "google-site-verification",
-	conten: "09GzJY96n56J9BnzBFUnHK20HZ-8nBcKVHRO29VVl_c",
+	content: "09GzJY96n56J9BnzBFUnHK20HZ-8nBcKVHRO29VVl_c",
+	openGraph: {
+		title: "Rhyme Machine",
+		description:
+			"Write Rap lyrics fast. Generate rap lyrics in the style of your favorite artist. Get bars in seconds.",
+		url: "https://rhymemachine.com",
+		siteName: "Rhyme Machine",
+		locale: "en_US",
+		type: "website",
+	},
 };
 
 const RootLayout = ({ children }) => {
