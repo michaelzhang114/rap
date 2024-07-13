@@ -28,10 +28,18 @@ const RootLayout = ({ children }) => {
 	return (
 		<html lang="en">
 			<head>
-				{/* <meta
-					name="google-site-verification"
-					content="09GzJY96n56J9BnzBFUnHK20HZ-8nBcKVHRO29VVl_c"
-				/> */}
+				{/* <!-- Google tag (gtag.js) --> */}
+				<script
+					async
+					src="https://www.googletagmanager.com/gtag/js?id=G-H81V804Y3T"
+				></script>
+				<script>
+					{`window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H81V804Y3T');`}
+				</script>
 			</head>
 			<AOSInit />
 			<body className="box-border">
@@ -44,20 +52,6 @@ const RootLayout = ({ children }) => {
 						<Footer />
 					</main>
 				</Provider>
-
-				{/* {Simple Analytics} */}
-				<script
-					async
-					defer
-					src="https://scripts.simpleanalyticscdn.com/latest.js"
-				></script>
-				<noscript>
-					<img
-						src="https://queue.simpleanalyticscdn.com/noscript.gif"
-						alt=""
-						referrerPolicy="no-referrer-when-downgrade"
-					/>
-				</noscript>
 			</body>
 		</html>
 	);
