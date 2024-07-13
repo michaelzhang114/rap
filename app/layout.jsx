@@ -28,9 +28,11 @@ export const metadata = {
 const RootLayout = ({ children }) => {
 	return (
 		<html lang="en">
-			<head></head>
+			<head>
+				{" "}
+				<GoogleAnalytics />
+			</head>
 			<AOSInit />
-			<GoogleAnalytics />
 			<body className="box-border">
 				<Provider>
 					<main className="app">
