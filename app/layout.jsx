@@ -8,15 +8,16 @@ import Footer from "@components/Footer";
 // import { Html, Head, Main, NextScript } from "next/document";
 
 export const metadata = {
-	title: "Rhyme Machine",
-	description: "Rhyme Machine - Write Rap Bars Fast",
+	title: "Rap Lyrics Generator & Maker - Rhyme Machine",
+	description:
+		"Generate rap lyrics in the style of J Cole or Kendrick in seconds with Rhyme Machine's AI-powered rap generator. Fast, fun, and free.",
 	name: "google-site-verification",
 	content: "09GzJY96n56J9BnzBFUnHK20HZ-8nBcKVHRO29VVl_c",
 	openGraph: {
-		title: "Rhyme Machine",
+		title: "Rap Lyrics Generator & Maker - Rhyme Machine",
 		description:
-			"Write Rap lyrics fast. Generate rap lyrics in the style of your favorite artist. Get bars in seconds.",
-		url: "https://rhymemachine.com",
+			"Generate rap lyrics in the style of J Cole or Kendrick in seconds with Rhyme Machine's AI-powered rap generator. Fast, fun, and free.",
+		url: "https://www.rhymemachine.com",
 		siteName: "Rhyme Machine",
 		locale: "en_US",
 		type: "website",
