@@ -55,7 +55,7 @@ const RootLayout = ({ children }) => {
 					<img
 						src="https://queue.simpleanalyticscdn.com/noscript.gif"
 						alt=""
-						referrerpolicy="no-referrer-when-downgrade"
+						referrerPolicy="no-referrer-when-downgrade"
 					/>
 				</noscript>
 			</body>

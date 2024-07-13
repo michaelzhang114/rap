@@ -55,26 +55,29 @@ export const POST = async (request, res) => {
 			],
 			model: "gpt-3.5-turbo",
 		});
+		console.log(completion);
+
 		if (completion) {
 			console.log(completion.choices[0].message);
 		} else {
 			console.log("no completion");
 		}
 
-		const session = await getServerSession(config);
-		console.log("this session");
-		console.log(session);
+		// commented this out for no log in
+		// const session = await getServerSession(config);
+		// console.log("this session");
+		// console.log(session);
 
 		// //decrement credit count
-		const filter = { email: session?.user?.email };
-		const update = { credits: session?.user?.credits - 1 };
+		// const filter = { email: session?.user?.email };
+		// const update = { credits: session?.user?.credits - 1 };
 
-		const out = await User.findOneAndUpdate(filter, update, {
-			new: true,
-		});
+		// const out = await User.findOneAndUpdate(filter, update, {
+		// 	new: true,
+		// });
 
-		console.log(out.email);
-		console.log(out.credits);
+		// console.log(out.email);
+		// console.log(out.credits);
 
 		return Response.json(`${completion.choices[0].message.content}`, {
 			status: 200,
