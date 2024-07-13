@@ -4,6 +4,7 @@ import Nav from "@components/Nav";
 import Provider from "@components/Provider";
 import { AOSInit } from "@components/aos";
 import Footer from "@components/Footer";
+import GoogleAnalytics from "@components/GoogleAnalytics";
 
 // import { Html, Head, Main, NextScript } from "next/document";
 
@@ -27,21 +28,9 @@ export const metadata = {
 const RootLayout = ({ children }) => {
 	return (
 		<html lang="en">
-			<head>
-				{/* <!-- Google tag (gtag.js) --> */}
-				<script
-					async
-					src="https://www.googletagmanager.com/gtag/js?id=G-H81V804Y3T"
-				></script>
-				<script>
-					{`window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-H81V804Y3T');`}
-				</script>
-			</head>
+			<head></head>
 			<AOSInit />
+			<GoogleAnalytics />
 			<body className="box-border">
 				<Provider>
 					<main className="app">
