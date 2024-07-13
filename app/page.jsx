@@ -3,6 +3,7 @@ import Hero from "@components/Hero";
 import Testimonials from "@components/Testimonials";
 import Link from "next/link";
 import React from "react";
+
 import { redirect } from "next/navigation";
 
 const Home = () => {
