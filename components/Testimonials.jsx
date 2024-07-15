@@ -64,7 +64,7 @@ export default function Testimonials() {
 								<cite className="block font-bold text-lg not-italic mb-1">
 									Michael
 									<div>
-										<span>Up and coming rapper</span>{" "}
+										<span>Up and coming rapper</span>
 									</div>
 								</cite>
 							</div>

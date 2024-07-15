@@ -29,7 +29,6 @@ const RootLayout = ({ children }) => {
 	return (
 		<html lang="en">
 			<head>
-				{" "}
 				<GoogleAnalytics />
 			</head>
 			<AOSInit />

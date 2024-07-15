@@ -13,7 +13,7 @@ const Hero = () => {
 							className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-normal mb-4"
 							data-aos="zoom-y-out"
 						>
-							Write Rap Lyrics{" "}
+							Write Rap Lyrics
 							<span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">
 								Fast
 							</span>

@@ -176,7 +176,7 @@ const FormGenerate = ({
 				>
 					<article className="prose lg:prose-xl mb-4">
 						<h2>2. Pick Your Mood(s)</h2>
-					</article>{" "}
+					</article>
 					<MoodCheckbox
 						moods={moods}
 						setMoods={setMoods}
@@ -186,9 +186,9 @@ const FormGenerate = ({
 				<div className="my-6" data-aos="zoom-y-out">
 					<article className="prose lg:prose-xl mb-4">
 						<h2>3. Generate</h2>
-					</article>{" "}
+					</article>
 					<label>
-						Style:{" "}
+						Style:
 						{selectedArtist == "" ? (
 							<div></div>
 						) : (
@@ -248,7 +248,7 @@ const FormGenerate = ({
 				>
 					<article className="prose lg:prose-xl mb-4">
 						<h2>Your Verse</h2>
-					</article>{" "}
+					</article>
 					<div className="flex flex-col">
 						<textarea
 							className="textarea textarea-accent mb-4"

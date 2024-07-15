@@ -59,7 +59,7 @@ const Nav = () => {
 							}}
 						>
 							<li>
-								<Link href="/create-verse">Generate Verse</Link>{" "}
+								<Link href="/create-verse">Generate Verse</Link>
 							</li>
 						</ul>
 					</div>
@@ -76,7 +76,7 @@ const Nav = () => {
 									className="btn btn-accent"
 								>
 									Generate Verse
-								</Link>{" "}
+								</Link>
 							</li>
 							{/* <li>
 								<details>

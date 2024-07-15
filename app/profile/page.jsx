@@ -6,7 +6,7 @@ const Profile = () => {
 		<div className="mx-4 my-6">
 			<article className="prose lg:prose-xl mb-4">
 				<h2>My Profile</h2>
-			</article>{" "}
+			</article>
 			<Feed></Feed>
 		</div>
 	);

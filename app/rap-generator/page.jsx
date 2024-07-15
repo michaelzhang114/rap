@@ -6,6 +6,9 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import FormGenerate from "@components/FormGenerate";
 import Hero from "@components/Hero";
+import Benefits from "@components/Benefits";
+import HowItWorks from "@components/HowItWorks";
+import FAQ from "@components/FAQ";
 
 const RapGenerator = () => {
 	const { data: session, status } = useSession();
@@ -52,6 +55,9 @@ const RapGenerator = () => {
 				haiku={verse}
 				setHaiku={setVerse}
 			></FormGenerate>
+			<Benefits></Benefits>
+			<HowItWorks />
+			<FAQ />
 		</div>
 	);
 };
