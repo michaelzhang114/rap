@@ -65,7 +65,7 @@ const benefitsData = [
 		id: 2,
 		Icon: LightBulbIcon,
 		headline: "High Quality",
-		text: "Our algorithm is trained on the greatest MCs of all time, ensuring your high quality and authentic lyrics.",
+		text: "Our algorithm is trained on the greatest MCs of all time, ensuring authentic lyrics.",
 		imageUrl: "/landing/3.jpg",
 	},
 	{

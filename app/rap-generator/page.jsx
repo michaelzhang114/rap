@@ -48,7 +48,7 @@ const RapGenerator = () => {
 	return (
 		<div>
 			<Hero />
-			<div className="mx-4 my-6">
+			<div className="mx-5 my-6 lg:max-w-5xl lg:mx-auto">
 				<Benefits></Benefits>
 
 				<FormGenerate
