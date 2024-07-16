@@ -5,6 +5,7 @@ import CustomArtistRadio from "./CustomArtistRadio";
 import MoodCheckbox from "./MoodCheckbox";
 import { useSession } from "next-auth/react";
 import FormSubmit from "./FormSubmit";
+import Link from "next/link";
 
 const getTrueKeys = (obj) => {
 	return Object.keys(obj).filter((key) => obj[key]);
@@ -19,6 +20,7 @@ const FormGenerate = ({
 }) => {
 	// need to use session to get the number of credits the current user has
 	const { data: session, status, update } = useSession();
+
 	const [credits, setCredits] = useState(0);
 
 	const [shouldCallAPI, setShouldCallAPI] = useState(false);
@@ -136,29 +138,15 @@ const FormGenerate = ({
 	}, [payload, shouldCallAPI]);
 
 	return (
-		<section>
+		<section className="mb-12">
 			<form onSubmit={handleGenerate}>
-				{/* <label className="form-control w-full max-w-xs">
-					<div className="label">
-						<span className="label-text">Verse name</span>
-					</div>
-					<input
-						type="text"
-						placeholder="Type here"
-						className="input input-bordered w-full max-w-xs"
-						value={payload.word}
-						onChange={(e) =>
-							setPayload({ ...payload, word: e.target.value })
-						}
-						// value={verse.title}
-						// onChange={(e) =>
-						// 	setVerse({ ...verse, title: e.target.value })
-						// }
-					/>
-				</label> */}
+				<article className="prose lg:prose-xl w-full mt-12">
+					<h2>Rap Generator: </h2>
+				</article>
+
 				<div className="flex flex-col mt-10" data-aos="zoom-y-out">
 					<article className="prose lg:prose-xl mb-4">
-						<h2>1. Select Your Inspiration</h2>
+						<h3>1. Select Your Inspiration</h3>
 					</article>
 					{/* <div className="overflow-x-auto w-full mb-4 pb-5"> */}
 					<div className="">
@@ -167,6 +155,23 @@ const FormGenerate = ({
 							onSelect={handleArtistSelect}
 							className="flex flex-row"
 						></CustomArtistRadio>
+
+						<div className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-25 p-2 rounded-l-full mt-5">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								className="h-6 w-6"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth={2}
+									d="M9 5l7 7-7 7"
+								/>
+							</svg>
+						</div>
 					</div>
 				</div>
 				<div
@@ -175,7 +180,7 @@ const FormGenerate = ({
 					data-aos-delay="150"
 				>
 					<article className="prose lg:prose-xl mb-4">
-						<h2>2. Pick Your Mood(s)</h2>
+						<h3>2. Pick Your Mood(s)</h3>
 					</article>
 					<MoodCheckbox
 						moods={moods}
@@ -185,14 +190,14 @@ const FormGenerate = ({
 				</div>
 				<div className="my-6" data-aos="zoom-y-out">
 					<article className="prose lg:prose-xl mb-4">
-						<h2>3. Generate</h2>
+						<h3>3. Generate</h3>
 					</article>
 					<label>
 						Style:
 						{selectedArtist == "" ? (
 							<div></div>
 						) : (
-							<span className="badge badge-accent">
+							<span className="badge badge-primary">
 								{selectedArtist}
 							</span>
 						)}
@@ -202,7 +207,7 @@ const FormGenerate = ({
 						<ul className="flex flex-row">
 							{trueMoods.map((key) => (
 								<li key={key} className="mx-1">
-									<div className="badge badge-accent">
+									<div className="badge badge-primary">
 										{key}
 									</div>
 								</li>
@@ -234,7 +239,12 @@ const FormGenerate = ({
 								"Write me a verse"
 							)}
 						</button>
-						<label>Credits remaining: {credits}</label>
+
+						{session ? (
+							<label>Credits remaining: {credits}</label>
+						) : (
+							<></>
+						)}
 					</div>
 					{/* <button className="btn btn-outline">Cancel</button> */}
 				</div>
@@ -246,14 +256,14 @@ const FormGenerate = ({
 					data-aos="zoom-y-out"
 					data-aos-delay="400"
 				>
-					<article className="prose lg:prose-xl mb-4">
+					<article className="prose lg:prose-xl mb-4 mx-auto text-center">
 						<h2>Your Verse</h2>
 					</article>
 					<div className="flex flex-col">
 						<textarea
-							className="textarea textarea-accent mb-4"
+							className="textarea textarea-accent mb-4 min-w-80 max-w-[500px] mx-auto"
 							rows="16"
-							cols="50"
+							// cols="50"
 							placeholder="Bio"
 							value={haiku.contents}
 							onChange={(e) =>
@@ -263,11 +273,25 @@ const FormGenerate = ({
 								}))
 							}
 						/>
-						<FormSubmit
-							handleSubmit={handleSubmit}
-							submitting={submitting}
-							isSubmitted={isSubmitted}
-						/>
+						{session ? (
+							<FormSubmit
+								handleSubmit={handleSubmit}
+								submitting={submitting}
+								isSubmitted={isSubmitted}
+							/>
+						) : (
+							<>
+								<p>
+									Want to save your verses?{" "}
+									<Link
+										href="/profile"
+										className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+									>
+										Login
+									</Link>
+								</p>
+							</>
+						)}
 					</div>
 				</div>
 			)}

@@ -4,16 +4,20 @@ import Link from "next/link";
 const Hero = () => {
 	return (
 		<section>
-			<div className="max-w-6xl mx-auto px-4 sm:px-6">
-				{/* Hero content */}
-				<div className="pt-32 pb-12 md:pt-40 md:pb-20">
-					{/* Section header */}
+			<div
+				className="hero min-h-screen"
+				style={{
+					backgroundImage: `url(/landing/1.jpg)`,
+				}}
+			>
+				<div className="hero-overlay bg-opacity-70"></div>
+				<div className="hero-content text-neutral-content text-center">
 					<div className="text-center pb-12 md:pb-16">
 						<p
 							className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-normal mb-4"
 							data-aos="zoom-y-out"
 						>
-							Write Rap Lyrics
+							Write Rap Lyrics{" "}
 							<span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">
 								Fast
 							</span>
@@ -21,7 +25,7 @@ const Hero = () => {
 
 						<div className="max-w-3xl mx-auto">
 							<h1
-								className="text-xl text-gray-400 mb-8"
+								className="text-xl text-gray-300 mb-8"
 								data-aos="zoom-y-out"
 								data-aos-delay="150"
 							>

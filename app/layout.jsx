@@ -36,7 +36,8 @@ const RootLayout = ({ children }) => {
 				<Provider>
 					<main className="app">
 						<Nav />
-						<div className="container mx-auto max-w-full px-1 md:px-3 lg:px-8">
+						{/* <div> */}
+						<div className="container mx-auto max-w-full">
 							{children}
 						</div>
 						<Footer />

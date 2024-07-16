@@ -21,7 +21,7 @@ const FAQ = () => {
 	];
 
 	return (
-		<section className="bg-yellow-200">
+		<section className="mt-12">
 			<article className="prose lg:prose-xl mb-4">
 				<h2>Frequently Asked Questions:</h2>
 			</article>

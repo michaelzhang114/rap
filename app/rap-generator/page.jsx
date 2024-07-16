@@ -46,18 +46,21 @@ const RapGenerator = () => {
 	};
 
 	return (
-		<div className="mx-4 my-6">
+		<div>
 			<Hero />
-			<FormGenerate
-				handleSubmit={createVerse}
-				submitting={submitting}
-				isSubmitted={isSubmitted}
-				haiku={verse}
-				setHaiku={setVerse}
-			></FormGenerate>
-			<Benefits></Benefits>
-			<HowItWorks />
-			<FAQ />
+			<div className="mx-4 my-6">
+				<Benefits></Benefits>
+
+				<FormGenerate
+					handleSubmit={createVerse}
+					submitting={submitting}
+					isSubmitted={isSubmitted}
+					haiku={verse}
+					setHaiku={setVerse}
+				></FormGenerate>
+				<HowItWorks />
+				<FAQ />
+			</div>
 		</div>
 	);
 };

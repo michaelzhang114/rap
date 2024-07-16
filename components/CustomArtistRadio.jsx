@@ -9,7 +9,7 @@ const ArtistRadio = ({ options, handleOptionChange, selectedOption }) => (
 	<div className="grid_scroll_two_rows pb-1">
 		{options.map((artist) => (
 			<div
-				className={`card card-compact card-side shadow-xl mx-3 ${
+				className={`card card-compact card-side shadow-xl mx-3 m ${
 					selectedOption == artist.name ? "bg-accent" : "bg-base-300"
 				}`}
 				key={artist.name}
