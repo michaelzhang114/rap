@@ -6,7 +6,7 @@ const HowItWorks = () => {
 	return (
 		<section>
 			<article className="prose lg:prose-xl">
-				<h2>Why settle for writer's block?</h2>
+				<h2>Why settle for writer&apos;s block?</h2>
 			</article>
 
 			<br />

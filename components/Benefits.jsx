@@ -82,7 +82,7 @@ const Benefits = () => {
 		<section className={styles.section}>
 			<article className="prose lg:prose-xl w-full mt-12 max-w-none">
 				<h2>
-					Here's what makes our generator the hottest thing in
+					Here&apos;s what makes our generator the hottest thing in
 					hip-hop:
 				</h2>
 			</article>
